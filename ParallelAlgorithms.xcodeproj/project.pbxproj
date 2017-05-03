@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		053C6F061EB9DFFB00831984 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 053C6EFC1EB9DFFB00831984 /* main.cpp */; };
+		053C6F071EB9DFFB00831984 /* MapReduce.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 053C6EFD1EB9DFFB00831984 /* MapReduce.cpp */; };
+		053C6F081EB9DFFB00831984 /* ParallelGeometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 053C6EFF1EB9DFFB00831984 /* ParallelGeometry.cpp */; };
+		053C6F091EB9DFFB00831984 /* ParallelSorting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 053C6F021EB9DFFB00831984 /* ParallelSorting.cpp */; };
+		053C6F0A1EB9DFFB00831984 /* PrefixSum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 053C6F041EB9DFFB00831984 /* PrefixSum.cpp */; };
 		05726E251E9FC79700C05BDD /* libtbb.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 05726E221E9FC79700C05BDD /* libtbb.dylib */; };
 		05726E271E9FC79700C05BDD /* libtbbmalloc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 05726E241E9FC79700C05BDD /* libtbbmalloc.dylib */; };
-		05726E2A1E9FFC8B00C05BDD /* ParallelSorting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05726E281E9FFC8B00C05BDD /* ParallelSorting.cpp */; };
-		05726E2D1E9FFD3F00C05BDD /* ParallelGeometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05726E2B1E9FFD3F00C05BDD /* ParallelGeometry.cpp */; };
-		05726E301EA0228600C05BDD /* PrefixSum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05726E2E1EA0228600C05BDD /* PrefixSum.cpp */; };
-		05CB6E281E98D6A900619533 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05CB6E271E98D6A900619533 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,18 +29,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		053C6EFC1EB9DFFB00831984 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ParallelAlgorithms/main.cpp; sourceTree = SOURCE_ROOT; };
+		053C6EFD1EB9DFFB00831984 /* MapReduce.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MapReduce.cpp; path = ParallelAlgorithms/MapReduce.cpp; sourceTree = SOURCE_ROOT; };
+		053C6EFE1EB9DFFB00831984 /* MapReduce.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = MapReduce.hpp; path = ParallelAlgorithms/MapReduce.hpp; sourceTree = SOURCE_ROOT; };
+		053C6EFF1EB9DFFB00831984 /* ParallelGeometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ParallelGeometry.cpp; path = ParallelAlgorithms/ParallelGeometry.cpp; sourceTree = SOURCE_ROOT; };
+		053C6F001EB9DFFB00831984 /* ParallelGeometry.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ParallelGeometry.hpp; path = ParallelAlgorithms/ParallelGeometry.hpp; sourceTree = SOURCE_ROOT; };
+		053C6F011EB9DFFB00831984 /* ParallelMatrixMultiplication.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ParallelMatrixMultiplication.hpp; path = ParallelAlgorithms/ParallelMatrixMultiplication.hpp; sourceTree = SOURCE_ROOT; };
+		053C6F021EB9DFFB00831984 /* ParallelSorting.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ParallelSorting.cpp; path = ParallelAlgorithms/ParallelSorting.cpp; sourceTree = SOURCE_ROOT; };
+		053C6F031EB9DFFB00831984 /* ParallelSorting.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ParallelSorting.hpp; path = ParallelAlgorithms/ParallelSorting.hpp; sourceTree = SOURCE_ROOT; };
+		053C6F041EB9DFFB00831984 /* PrefixSum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PrefixSum.cpp; path = ParallelAlgorithms/PrefixSum.cpp; sourceTree = SOURCE_ROOT; };
+		053C6F051EB9DFFB00831984 /* PrefixSum.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = PrefixSum.hpp; path = ParallelAlgorithms/PrefixSum.hpp; sourceTree = SOURCE_ROOT; };
 		05726E221E9FC79700C05BDD /* libtbb.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libtbb.dylib; sourceTree = "<group>"; };
 		05726E241E9FC79700C05BDD /* libtbbmalloc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libtbbmalloc.dylib; sourceTree = "<group>"; };
-		05726E281E9FFC8B00C05BDD /* ParallelSorting.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParallelSorting.cpp; sourceTree = "<group>"; };
-		05726E291E9FFC8B00C05BDD /* ParallelSorting.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ParallelSorting.hpp; sourceTree = "<group>"; };
-		05726E2B1E9FFD3F00C05BDD /* ParallelGeometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParallelGeometry.cpp; sourceTree = "<group>"; };
-		05726E2C1E9FFD3F00C05BDD /* ParallelGeometry.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ParallelGeometry.hpp; sourceTree = "<group>"; };
-		05726E2E1EA0228600C05BDD /* PrefixSum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PrefixSum.cpp; sourceTree = "<group>"; };
-		05726E2F1EA0228600C05BDD /* PrefixSum.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PrefixSum.hpp; sourceTree = "<group>"; };
-		05726E321EA0E3A200C05BDD /* MapReduce.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MapReduce.hpp; sourceTree = "<group>"; };
-		05726E351EA104E400C05BDD /* ParallelMatrixMultiplication.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ParallelMatrixMultiplication.hpp; sourceTree = "<group>"; };
 		05CB6E241E98D6A900619533 /* ParallelAlgorithms */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ParallelAlgorithms; sourceTree = BUILT_PRODUCTS_DIR; };
-		05CB6E271E98D6A900619533 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,15 +78,16 @@
 		05CB6E261E98D6A900619533 /* ParallelAlgorithms */ = {
 			isa = PBXGroup;
 			children = (
-				05CB6E271E98D6A900619533 /* main.cpp */,
-				05726E351EA104E400C05BDD /* ParallelMatrixMultiplication.hpp */,
-				05726E321EA0E3A200C05BDD /* MapReduce.hpp */,
-				05726E281E9FFC8B00C05BDD /* ParallelSorting.cpp */,
-				05726E291E9FFC8B00C05BDD /* ParallelSorting.hpp */,
-				05726E2B1E9FFD3F00C05BDD /* ParallelGeometry.cpp */,
-				05726E2C1E9FFD3F00C05BDD /* ParallelGeometry.hpp */,
-				05726E2E1EA0228600C05BDD /* PrefixSum.cpp */,
-				05726E2F1EA0228600C05BDD /* PrefixSum.hpp */,
+				053C6EFC1EB9DFFB00831984 /* main.cpp */,
+				053C6EFD1EB9DFFB00831984 /* MapReduce.cpp */,
+				053C6EFE1EB9DFFB00831984 /* MapReduce.hpp */,
+				053C6EFF1EB9DFFB00831984 /* ParallelGeometry.cpp */,
+				053C6F001EB9DFFB00831984 /* ParallelGeometry.hpp */,
+				053C6F011EB9DFFB00831984 /* ParallelMatrixMultiplication.hpp */,
+				053C6F021EB9DFFB00831984 /* ParallelSorting.cpp */,
+				053C6F031EB9DFFB00831984 /* ParallelSorting.hpp */,
+				053C6F041EB9DFFB00831984 /* PrefixSum.cpp */,
+				053C6F051EB9DFFB00831984 /* PrefixSum.hpp */,
 			);
 			name = ParallelAlgorithms;
 			path = ParallelClosestPair;
@@ -147,10 +150,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05CB6E281E98D6A900619533 /* main.cpp in Sources */,
-				05726E301EA0228600C05BDD /* PrefixSum.cpp in Sources */,
-				05726E2A1E9FFC8B00C05BDD /* ParallelSorting.cpp in Sources */,
-				05726E2D1E9FFD3F00C05BDD /* ParallelGeometry.cpp in Sources */,
+				053C6F071EB9DFFB00831984 /* MapReduce.cpp in Sources */,
+				053C6F0A1EB9DFFB00831984 /* PrefixSum.cpp in Sources */,
+				053C6F061EB9DFFB00831984 /* main.cpp in Sources */,
+				053C6F081EB9DFFB00831984 /* ParallelGeometry.cpp in Sources */,
+				053C6F091EB9DFFB00831984 /* ParallelSorting.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

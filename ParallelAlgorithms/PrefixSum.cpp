@@ -12,10 +12,10 @@
 
 std::vector<int> sequentialPrefixSum(std::vector<int> input) {
     std::vector<int> output (input.size() + 1);
-    output[0] = 0;
+    output[0] = input[0];
     
     for (int i = 1; i < input.size() + 1; i++) {
-        output[i] = output[i - 1] + input[i - 1];
+        output[i] = output[i - 1] + input[i];
     }
     
     return output;
@@ -41,11 +41,13 @@ std::vector<int>parallelPrefixSum(std::vector<int> input) {
                           [&] (size_t i) { S[d][i] = (i % 2 == 0) ? S[d][i] + upperLevel[i/2 - 1] : upperLevel[i/2]; });
     }
     
-    S[0][0] = 0;
     return S[0];
 }
 
-std::vector<int> prefixSum(std::vector<int> input) {
-    //return sequentialPrefixSum(input);
-    return parallelPrefixSum(input);
+std::vector<int> prefixSum(std::vector<int> input, bool parallel) {
+    if (!parallel) {
+      return sequentialPrefixSum(input);
+    } else {
+      return parallelPrefixSum(input);
+    }
 }

@@ -13,70 +13,98 @@
 #include "MapReduce.hpp"
 #include "ParallelMatrixMultiplication.hpp"
 
+int *generateRandomVector(int size, int min, int max) {
+    int* result = new int[size];
+    
+    for (int i = 0; i < size; i++) {
+        result[i] = min + (rand() % (int)(max - min + 1));
+    }
+    
+    return result;
+}
+
+Point* generateRandomPoints(int size, int min, int max) {
+    int* x = generateRandomVector(size, min, max);
+    int* y = generateRandomVector(size, min, max);
+    
+    Point *result = new Point[size];
+    for (int i = 0; i < size; i++) {
+        result[i].x = x[i];
+        result[i].y = y[i];
+    }
+    return result;
+
+}
+
 int main(int argc, const char * argv[]) {
-    
+    const int size = 2048;
     //Task2
-    int  arr1[] = { 1,2,3,4,5,1,2,3,4,5 };
+    int* arr1 = generateRandomVector(2048, 0, 10);
     
-    sort(arr1,10);
-    for (int i = 0; i < 10; i++) {
+    sort(arr1,size);
+    for (int i = 0; i < size; i++) {
         std::cout<<arr1[i]<<", ";
     }
+    std::cout << "------------------------------------------" <<std::endl;
     std::cout << std::endl;
     
     
     //Task 4
-    Point P[] = {{2, 3}, {12, 30}, {40, 50}, {5, 1}, {12, 10}, {3, 4}};
-    std::vector<Point> v(std::begin(P), std::end(P));
+    Point* P = generateRandomPoints(size, 1, 100);
+    std::vector<Point> v(P, P + size);
     
     std::cout<<"The closest distance is - "<<closestPair(v)<<std::endl;
+    std::cout << "------------------------------------------" <<std::endl;
+    std::cout << std::endl;
     
     //Task 1
-    std::vector<int> vector = {7, 0, 2, 9, 5, 1, 8, 6};
+    int* arr2 = generateRandomVector(size, 0, 200);
+    std::vector<int> vector(arr2, arr2 + size);
     
-    std::vector<int> result = prefixSum(vector);
+    std::vector<int> resultParallel = prefixSum(vector, true);
+    std::vector<int> resultSeq = prefixSum(vector, false);
     
-    for (int i = 0; i < result.size(); i++) {
-        std::cout<<result[i]<<" "<<std::endl;
+    int sum = 0;
+    for (int i = 0; i < resultParallel.size(); i++) {
+        if (i < 5) {
+            std::cout<<"Vector - "<<vector[i]<<", Parallel Sum - "<<resultParallel[i]<<", Parallel Seq - "<<resultSeq[i]<<std::endl;
+        }
+        sum += resultParallel[i] - resultSeq[i];
     }
+    
+    std::cout<<" The sum is - "<<sum<<std::endl;
+    
+    
+    for (int i = 0; i < resultParallel.size(); i++) {
+        std::cout<<resultParallel[i]<<" "<<std::endl;
+    }
+    std::cout << "------------------------------------------" <<std::endl;
+    std::cout << std::endl;
     
     //Task 3
-    std::vector<int> vector1 (1024);
-    
-    for (int i = 0; i < 1024; i++) {
-        int max = 9;
-        int min = 0;
-        vector1[i] = min + (rand() % (int)(max - min + 1));
-    }
+    int* arr3 = generateRandomVector(size, 0, 9);
+    std::vector<int> vector1(arr3, arr3 + size);
     
     MapReduce *rdd = new MapReduce();
     auto map = [](int i) { return  std::pair<int,int>(i,1);};
     auto reduce = [] (int a, int b){ return a + b;};
     std::map<int,int> res = rdd->mapReduce(vector1, map, reduce);
     
+    std::cout << "------------------------------------------" <<std::endl;
+    std::cout << std::endl;
     
     //Task 5
-    int w = 5;
-    int h = 5;
+    int w = size/2;
+    int h = size/2;
     int** a = new int*[w];
     int** b = new int*[w];
     for(int i = 0; i < h; ++i) {
-        a[i] = new int[h];
-        b[i] = new int[h];
+        a[i] = generateRandomVector(h, 0, 9);
+        b[i] = generateRandomVector(h, 0, 9);
     }
     
-    for (int i = 0; i < w; i++) {
-        for (int j = 0; j < h; j++) {
-            int max = 9;
-            int min = 1;
-            a[i][j] = min + (rand() % (int)(max - min + 1));
-            b[i][j] = min + (rand() % (int)(max - min + 1));
-        }
-    }
     Matrix<int> *A = new Matrix<int>(a,w,h);
     Matrix<int> *B = new Matrix<int>(b,w,h);
-    A->print();
-    B->print();
     Matrix<int> C = *A * *B;
     C.print();
     

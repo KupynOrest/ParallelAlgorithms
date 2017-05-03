@@ -14,5 +14,5 @@
 
 #endif /* PrefixSum_hpp */
 
-std::vector<int> prefixSum(std::vector<int> input);
+std::vector<int> prefixSum(std::vector<int> input, bool parallel);
 
