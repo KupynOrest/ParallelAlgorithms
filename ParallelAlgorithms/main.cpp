@@ -7,6 +7,7 @@
 //
 
 #include <iostream>
+#include <ctime>
 #include "ParallelSorting.hpp"
 #include "ParallelGeometry.hpp"
 #include "PrefixSum.hpp"
@@ -38,60 +39,6 @@ Point* generateRandomPoints(int size, int min, int max) {
 
 int main(int argc, const char * argv[]) {
     const int size = 2048;
-    //Task2
-    int* arr1 = generateRandomVector(2048, 0, 10);
-    
-    sort(arr1,size);
-    for (int i = 0; i < size; i++) {
-        std::cout<<arr1[i]<<", ";
-    }
-    std::cout << "------------------------------------------" <<std::endl;
-    std::cout << std::endl;
-    
-    
-    //Task 4
-    Point* P = generateRandomPoints(size, 1, 100);
-    std::vector<Point> v(P, P + size);
-    
-    std::cout<<"The closest distance is - "<<closestPair(v)<<std::endl;
-    std::cout << "------------------------------------------" <<std::endl;
-    std::cout << std::endl;
-    
-    //Task 1
-    int* arr2 = generateRandomVector(size, 0, 200);
-    std::vector<int> vector(arr2, arr2 + size);
-    
-    std::vector<int> resultParallel = prefixSum(vector, true);
-    std::vector<int> resultSeq = prefixSum(vector, false);
-    
-    int sum = 0;
-    for (int i = 0; i < resultParallel.size(); i++) {
-        if (i < 5) {
-            std::cout<<"Vector - "<<vector[i]<<", Parallel Sum - "<<resultParallel[i]<<", Parallel Seq - "<<resultSeq[i]<<std::endl;
-        }
-        sum += resultParallel[i] - resultSeq[i];
-    }
-    
-    std::cout<<" The sum is - "<<sum<<std::endl;
-    
-    
-    for (int i = 0; i < resultParallel.size(); i++) {
-        std::cout<<resultParallel[i]<<" "<<std::endl;
-    }
-    std::cout << "------------------------------------------" <<std::endl;
-    std::cout << std::endl;
-    
-    //Task 3
-    int* arr3 = generateRandomVector(size, 0, 9);
-    std::vector<int> vector1(arr3, arr3 + size);
-    
-    MapReduce *rdd = new MapReduce();
-    auto map = [](int i) { return  std::pair<int,int>(i,1);};
-    auto reduce = [] (int a, int b){ return a + b;};
-    std::map<int,int> res = rdd->mapReduce(vector1, map, reduce);
-    
-    std::cout << "------------------------------------------" <<std::endl;
-    std::cout << std::endl;
     
     //Task 5
     int w = size/2;
@@ -105,7 +52,32 @@ int main(int argc, const char * argv[]) {
     
     Matrix<int> *A = new Matrix<int>(a,w,h);
     Matrix<int> *B = new Matrix<int>(b,w,h);
-    Matrix<int> C = *A * *B;
+    
+    clock_t begin = clock();
+    
+    Matrix<int> C = matrixMultiplyNaive(*A, *B);
+    
+    clock_t end = clock();
+    double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+    cout<<"Naive Matrix multiply took - "<<elapsed_secs<<" seconds"<<endl;
+    
+    begin = clock();
+    
+    C = matrixMultiplyNaiveParallel(*A, *B);
+    
+    end = clock();
+    elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+    cout<<"Naive Parallel Matrix multiply took - "<<elapsed_secs<<" seconds"<<endl;
+    
+    begin = clock();
+    
+    C = matrixMultiplyTiled(*A, *B);
+    
+    end = clock();
+    elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+    cout<<"Tiled Parallel Matrix multiply took - "<<elapsed_secs<<" seconds"<<endl;
+    
+    
     C.print();
     
     return 0;
